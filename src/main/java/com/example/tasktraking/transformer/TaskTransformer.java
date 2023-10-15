@@ -14,7 +14,7 @@ public final class TaskTransformer {
                 .collect(Collectors.toList());
     }
 
-    private static TaskDTO transformToTaskDTO(Task task) {
+    public static TaskDTO transformToTaskDTO(Task task) {
         TaskDTO taskDTO = new TaskDTO();
         taskDTO.setTitle(task.getTitle());
         taskDTO.setDescription(task.getDescription());
