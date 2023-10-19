@@ -18,6 +18,7 @@ public final class TaskTransformer {
         TaskDTO taskDTO = new TaskDTO();
         taskDTO.setTitle(task.getTitle());
         taskDTO.setDescription(task.getDescription());
+        taskDTO.setCompleted(task.isCompleted());
         return taskDTO;
     }
 
