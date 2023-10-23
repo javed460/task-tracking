@@ -20,4 +20,8 @@ public class TaskService {
         Task savedTask = taskRepository.save(task);
         return savedTask.getId().intValue();
     }
+
+    public Task updateTask(Task task) {
+        return taskRepository.save(task);
+    }
 }
