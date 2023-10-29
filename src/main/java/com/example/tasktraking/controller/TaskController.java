@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.example.tasktraking.transformer.TaskTransformer.transformToTask;
-import static com.example.tasktraking.transformer.TaskTransformer.transformToTaskList;
+import static com.example.tasktraking.transformer.TaskTransformer.*;
 
 @RestController
 @RequestMapping("/tasks")
@@ -28,5 +27,12 @@ public class TaskController {
     public Integer createTask(@RequestBody TaskDTO taskDTO) {
         Task task = transformToTask(taskDTO);
         return taskService.create(task);
+    }
+
+    @PutMapping("{id}")
+    public TaskDTO updateTask(@PathVariable int id,@RequestBody TaskDTO taskDTO) {
+        Task task = transformToTask(taskDTO);
+        Task updatedTask = taskService.updateTask(task);
+        return transformToTaskDTO(updatedTask);
     }
 }
